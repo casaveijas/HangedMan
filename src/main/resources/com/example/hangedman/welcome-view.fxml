@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="383.0" prefWidth="600.0" spacing="16.0" style="-fx-background-color: #AAFEFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hangedman.controller.WelcomeController">
+    <children>
+        <Label text="AHORCADO" textAlignment="CENTER" textFill="#060980">
+            <font>
+                <Font name="Berlin Sans FB" size="44.0" />
+            </font>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <VBox.margin>
+                <Insets bottom="32.0" />
+            </VBox.margin>
+        </Label>
+      <GridPane prefHeight="35.0" prefWidth="310.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints />
+          <RowConstraints maxHeight="42.599981689453124" minHeight="10.0" prefHeight="24.000006103515624" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label contentDisplay="CENTER" prefHeight="22.0" prefWidth="167.0" text="Palabra secreta" textFill="#535353" GridPane.rowIndex="1">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="secretWordTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+        <Button mnemonicParsing="false" onAction="#onHandleButtonPlay" style="-fx-background-color: blue; -fx-background-radius: 100;" text="Jugar" textFill="WHITE">
+            <font>
+                <Font name="SansSerif Bold" size="18.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="DEFAULT" />
+            </cursor>
+      </Button>
+    </children>
+</VBox>
