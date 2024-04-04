@@ -1,54 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.MotionBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="383.0" prefWidth="600.0" spacing="16.0" style="-fx-background-color: #AAFEFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hangedman.controller.WelcomeController">
-    <children>
-        <Label text="AHORCADO" textAlignment="CENTER" textFill="#060980">
-            <font>
-                <Font name="Berlin Sans FB" size="44.0" />
-            </font>
-            <opaqueInsets>
-                <Insets />
-            </opaqueInsets>
-            <VBox.margin>
-                <Insets bottom="32.0" />
-            </VBox.margin>
-        </Label>
-      <GridPane prefHeight="35.0" prefWidth="310.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints />
-          <RowConstraints maxHeight="42.599981689453124" minHeight="10.0" prefHeight="24.000006103515624" vgrow="SOMETIMES" />
-        </rowConstraints>
+
+<Pane prefHeight="469.0" prefWidth="639.0" style="-fx-background-color: #000032;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hangedman.controller.WelcomeController">
+   <children>
+      <ImageView fx:id="backgroundImageView" disable="true" fitHeight="761.0" fitWidth="1913.0" layoutX="-30.0" layoutY="-121.0" opacity="0.49" pickOnBounds="true">
+         <image>
+            <Image url="@images/backbackground.png" />
+         </image>
+         <effect>
+            <Glow level="0.51" />
+         </effect>
+      </ImageView>
+      <ImageView disable="true" fitHeight="481.0" fitWidth="648.0" layoutX="-5.0" layoutY="-5.0" pickOnBounds="true">
+         <image>
+            <Image url="@images/background_welcome.png" />
+         </image>
+         <effect>
+            <Glow level="0.51" />
+         </effect>
+      </ImageView>
+      <VBox alignment="CENTER" layoutY="39.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="418.0" prefWidth="639.0" spacing="10.0">
          <children>
-            <Label contentDisplay="CENTER" prefHeight="22.0" prefWidth="167.0" text="Palabra secreta" textFill="#535353" GridPane.rowIndex="1">
+            <ImageView fx:id="titleImageView" fitHeight="98.0" fitWidth="458.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/titulo.png" />
+               </image>
+               <effect>
+                  <Bloom threshold="0.34" />
+               </effect>
+            </ImageView>
+            <Label opacity="0.6" prefHeight="43.0" prefWidth="420.0" text="Bienvenido, por favor ingresa la palabra secreta y tres (3) pistas relacionadas para comenzar a jugar..." textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
-                  <Font name="SansSerif Bold" size="18.0" />
+                  <Font name="Courier New" size="12.0" />
                </font>
+               <effect>
+                  <MotionBlur radius="0.0" />
+               </effect>
             </Label>
-            <TextField fx:id="secretWordTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Pane prefHeight="227.0" prefWidth="639.0">
+               <children>
+                  <VBox layoutX="129.0" layoutY="4.0" opacity="0.6" prefHeight="129.0" prefWidth="378.0" spacing="5.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="29.0" prefWidth="386.0">
+                           <children>
+                              <Label text="Palabra secreta: " textFill="WHITE">
+                                 <font>
+                                    <Font name="Courier New" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="secretWordTextField" promptText="Ej. Manzana" style="-fx-background-color: #2a1e4c; -fx-background-radius: 20; -fx-border-radius: 5; -fx-border-color: #664783; -fx-border-width: 3; -fx-text-fill: white;">
+                                 <font>
+                                    <Font name="Courier New" size="13.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <GridPane prefHeight="99.0" prefWidth="375.0">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="218.0" minWidth="10.0" prefWidth="72.39998779296874" />
+                              <ColumnConstraints maxWidth="357.0" minWidth="306.0000244140625" prefWidth="306.8000122070313" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Pista 1: " textFill="WHITE">
+                                 <font>
+                                    <Font name="Courier New" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Pista 2: " textFill="WHITE" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Courier New" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Pista 3: " textFill="WHITE" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Courier New" size="12.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="hintText1" prefHeight="25.0" prefWidth="177.0" promptText="Ej. Es una fruta" style="-fx-background-color: #2a1e4c; -fx-border-color: #664783; -fx-border-width: 3; -fx-border-radius: 5; -fx-background-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Courier New" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="hintText3" prefHeight="25.0" prefWidth="177.0" promptText="Ej. Es comestible" style="-fx-background-color: #2a1e4c; -fx-border-color: #664783; -fx-border-width: 3; -fx-border-radius: 5; -fx-background-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Courier New" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="hintText2" prefHeight="25.0" prefWidth="177.0" promptText="Ej. Tiene semillas" style="-fx-background-color: #2a1e4c; -fx-border-color: #664783; -fx-border-width: 3; -fx-border-radius: 5; -fx-background-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Courier New" size="12.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </VBox>
+                  <Button fx:id="startButton" layoutX="269.0" layoutY="136.0" mnemonicParsing="false" onAction="#onHandleButtonPlay" prefHeight="84.0" prefWidth="87.0" style="-fx-border-width: 0; -fx-background-radius: 0; -fx-background-color: 0;" textAlignment="CENTER" textFill="RED">
+                     <font>
+                        <Font name="Gadugi Bold" size="25.0" />
+                     </font>
+                     <effect>
+                        <Bloom threshold="1.0" />
+                     </effect>
+                     <graphic>
+                        <ImageView fx:id="titleImageView1" fitHeight="70.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/play.png" />
+                           </image>
+                           <effect>
+                              <Bloom threshold="0.34" />
+                           </effect>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
          </children>
-      </GridPane>
-        <Button mnemonicParsing="false" onAction="#onHandleButtonPlay" style="-fx-background-color: blue; -fx-background-radius: 100;" text="Jugar" textFill="WHITE">
-            <font>
-                <Font name="SansSerif Bold" size="18.0" />
-            </font>
-            <cursor>
-                <Cursor fx:constant="DEFAULT" />
-            </cursor>
-      </Button>
-    </children>
-</VBox>
+      </VBox>
+   </children>
+</Pane>

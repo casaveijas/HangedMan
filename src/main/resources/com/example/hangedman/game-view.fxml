@@ -1,90 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.MotionBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="8.0" style="-fx-background-color: #AAFFDA;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hangedman.controller.GameController">
+
+<Pane prefHeight="712.0" prefWidth="514.0" style="-fx-background-color: #000032;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hangedman.controller.GameController">
    <children>
-      <Label text="AHORCADO" textAlignment="CENTER" textFill="#06802b">
-         <font>
-            <Font name="Berlin Sans FB" size="44.0" />
-         </font>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </Label>
-      <GridPane alignment="CENTER_LEFT">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label alignment="CENTER" prefHeight="20.0" prefWidth="102.0" text="Vidas:" textAlignment="CENTER" GridPane.columnIndex="1">
-               <font>
-                  <Font name="SansSerif Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="18.0" prefWidth="110.0" style="-fx-background-color: white; -fx-background-radius: 90;" text="3" GridPane.columnIndex="2">
-               <font>
-                  <Font name="SansSerif Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label prefHeight="18.0" prefWidth="104.0" text="PlayerName">
-               <font>
-                  <Font name="SansSerif Bold Italic" size="13.0" />
-               </font>
-            </Label>
-         </children>
-      </GridPane>
-      <ImageView fitHeight="171.0" fitWidth="358.0" pickOnBounds="true" smooth="false">
+      <ImageView fx:id="gameBackgroundImageView" disable="true" fitHeight="626.0" fitWidth="1750.0" layoutX="-1223.0" layoutY="-193.0" opacity="0.49" pickOnBounds="true">
          <image>
-            <Image url="@images/3lifesleft.png" />
+            <Image url="@images/backbackground.png" />
          </image>
+         <effect>
+            <Glow level="0.51" />
+         </effect>
       </ImageView>
-      <Button mnemonicParsing="false" onAction="#onHandleButtonPlay" text="Jugar" />
-      <HBox fx:id="hboxLayout" alignment="CENTER" prefHeight="65.0" prefWidth="600.0" style="-fx-background-color: #D9FFF5;" />
-      <GridPane prefHeight="34.0" prefWidth="562.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <ImageView disable="true" fitHeight="748.0" fitWidth="524.0" layoutX="-5.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/background_game.png" />
+         </image>
+         <effect>
+            <Glow level="0.51" />
+         </effect>
+      </ImageView>
+      <VBox alignment="TOP_CENTER" layoutX="50.0" layoutY="497.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="205.0" prefWidth="412.0" spacing="15.0">
          <children>
-            <Label prefHeight="18.0" prefWidth="140.0" text="Adivina la letra:">
+            <VBox alignment="CENTER" prefHeight="60.0" prefWidth="366.0">
+               <children>
+                  <Label opacity="0.58" text="Ingresa una letra" textFill="WHITE">
+                     <font>
+                        <Font name="Courier New" size="12.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <TextField fx:id="letterField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="48.0" promptText="!" style="-fx-background-color: 0; -fx-border-color: #363661; -fx-border-width: 3; -fx-border-radius: 25; -fx-background-radius: 100; -fx-text-fill: white;">
+                           <font>
+                              <Font name="Courier New" size="17.0" />
+                           </font>
+                           <effect>
+                              <Bloom threshold="0.0" />
+                           </effect>
+                        </TextField>
+                        <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#OnHandleButtonValidateLetter" prefHeight="38.0" prefWidth="123.0" style="-fx-border-color: #363661; -fx-border-radius: 25; -fx-border-width: 3; -fx-background-radius: 30; -fx-background-color: 100;" text="Verificar" textAlignment="CENTER" textFill="#8383f2">
+                           <font>
+                              <Font name="Gadugi Bold" size="18.0" />
+                           </font>
+                           <effect>
+                              <Bloom threshold="0.0" />
+                           </effect>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="107.0" prefWidth="358.0">
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="218.0" minWidth="7.0" prefWidth="72.0" />
+                  <ColumnConstraints maxWidth="367.99998779296874" minWidth="175.0" prefWidth="247.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TextField fx:id="hint1" disable="true" editable="false" prefHeight="25.0" prefWidth="177.0" style="-fx-background-color: #2a1e4c; -fx-border-color: #664783; -fx-border-width: 3; -fx-border-radius: 5; -fx-background-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Courier New" size="12.0" />
+                     </font>
+                     <effect>
+                        <MotionBlur radius="15.0" />
+                     </effect>
+                  </TextField>
+                  <TextField fx:id="hint3" disable="true" editable="false" prefHeight="25.0" prefWidth="177.0" style="-fx-background-color: #2a1e4c; -fx-border-color: #664783; -fx-border-width: 3; -fx-border-radius: 5; -fx-background-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Courier New" size="12.0" />
+                     </font>
+                     <effect>
+                        <MotionBlur radius="15.0" />
+                     </effect>
+                  </TextField>
+                  <TextField fx:id="hint2" disable="true" editable="false" prefHeight="25.0" prefWidth="177.0" style="-fx-background-color: #2a1e4c; -fx-border-color: #664783; -fx-border-width: 3; -fx-border-radius: 5; -fx-background-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Courier New" size="12.0" />
+                     </font>
+                     <effect>
+                        <MotionBlur radius="15.0" />
+                     </effect>
+                  </TextField>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onHandleButtonHelp" prefHeight="88.0" prefWidth="85.0" style="-fx-border-color: #363661; -fx-border-radius: 30; -fx-background-radius: 30; -fx-background-color: 0; -fx-border-width: 3;" text="Ver pista" textAlignment="CENTER" textFill="#8d8df5" wrapText="true" GridPane.rowSpan="3">
+                     <font>
+                        <Font name="Gadugi Bold" size="18.0" />
+                     </font>
+                     <effect>
+                        <Bloom threshold="0.0" />
+                     </effect>
+                  </Button>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+      <ImageView fitHeight="48.0" fitWidth="419.0" layoutX="82.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/titulo.png" />
+         </image>
+         <effect>
+            <Bloom threshold="0.34" />
+         </effect>
+      </ImageView>
+      <HBox fx:id="hboxLayout" alignment="CENTER" layoutX="116.0" layoutY="441.0" prefHeight="45.0" prefWidth="286.0" spacing="3.0" style="-fx-background-color: 0;" />
+      <ImageView fx:id="imageView" fitHeight="284.0" fitWidth="213.0" layoutX="149.0" layoutY="136.0" pickOnBounds="true" smooth="false">
+         <effect>
+            <Bloom />
+         </effect>
+      </ImageView>
+      <GridPane alignment="CENTER_LEFT" layoutX="167.0" layoutY="380.0" opacity="0.49" prefHeight="45.0" prefWidth="178.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="201.0" minWidth="10.0" prefWidth="155.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="122.0" minWidth="0.0" prefWidth="23.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label alignment="CENTER" prefHeight="20.0" prefWidth="177.0" text="Vidas restantes..." textAlignment="CENTER" textFill="#bf88f5">
                <font>
-                  <Font name="SansSerif Bold" size="16.0" />
+                  <Font name="Courier New" size="14.0" />
                </font>
             </Label>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onHandleButtonHelp" style="-fx-background-radius: 100; -fx-background-color: #5EFF7E;" text="Ayuda" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" GridPane.columnIndex="3">
+            <Label fx:id="livesLabel" alignment="CENTER" contentDisplay="RIGHT" prefHeight="20.0" prefWidth="33.0" style="-fx-background-color: 0; -fx-background-radius: 90;" text="6" textFill="#c792ff" GridPane.columnIndex="1">
                <font>
-                  <Font name="SansSerif Bold" size="12.0" />
+                  <Font name="Courier New" size="16.0" />
                </font>
-            </Button>
-            <TextField prefHeight="26.0" prefWidth="66.0" GridPane.columnIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: #5EFF7E; -fx-border-color: #000000;" text="Ok" GridPane.columnIndex="2">
-               <font>
-                  <Font name="SansSerif Bold" size="12.0" />
-               </font>
-            </Button>
+            </Label>
          </children>
       </GridPane>
+      <Button fx:id="playButton" layoutX="155.0" layoutY="161.0" mnemonicParsing="false" onAction="#onHandleButtonPlay" prefHeight="205.0" prefWidth="202.0" style="-fx-background-color: 0;">
+         <graphic>
+            <ImageView fitHeight="185.0" fitWidth="185.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/play.png" />
+               </image>
+               <effect>
+                  <Bloom threshold="0.34" />
+               </effect>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button alignment="TOP_CENTER" contentDisplay="RIGHT" layoutX="4.0" layoutY="650.0" mnemonicParsing="false" onAction="#OnHandleButtonBack" prefHeight="48.0" prefWidth="71.0" style="-fx-background-color: 0;" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Bold" size="10.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="62.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+               <effect>
+                  <Bloom threshold="0.34" />
+               </effect>
+               <image>
+                  <Image url="@images/go_backicon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
-</VBox>
+</Pane>

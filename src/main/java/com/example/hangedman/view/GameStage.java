@@ -1,9 +1,12 @@
 package com.example.hangedman.view;
 
 import com.example.hangedman.controller.GameController;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,6 +20,8 @@ public class GameStage extends Stage {
         Parent root = loader.load();
         gameController = loader.getController();
         Scene scene = new Scene(root);
+        Image icon = new Image(getClass().getResourceAsStream("/com/example/hangedman/images/favicon.png"));
+        getIcons().add(icon);
         setTitle("Ahorcado");
         setResizable(false);
         setScene(scene);
